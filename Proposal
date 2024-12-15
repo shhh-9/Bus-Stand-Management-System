@@ -1,0 +1,97 @@
+CS 101 Open Ended Lab 
+“Proposal for Bus Stand Management System” 
+Project Title: 
+Bus Stand Management System 
+Prepared by: 
+Shahmeer Abdullah (2024576) 
+Zuhaib Akhtar (2024691) 
+1. Introduction 
+The Bus Stand Management System is a C++-based software solution designed to automate 
+and simplify the management of bus operations at a bus stand. It helps efficiently manage bus 
+schedules, track available seats, and handle seat allotment for passengers. The system offers a 
+user-friendly interface that allows bus operators to add buses, check available buses, view 
+seat availability, and book seats for passengers. Additionally, it now incorporates 
+functionality to track departure locations, making it more comprehensive. 
+2. Objectives 
+The primary objectives of the Bus Stand Management System are as follows: 
+ Manage Bus Details: Track bus numbers, destinations, departure locations, total 
+seats, booked seats, departure times, and arrival times. 
+ Track Seat Availability: Easily monitor available seats for each bus. 
+ Seat Allotment: Allow passengers to book seats, ensuring no overbooking occurs. 
+ Improved User Experience: Provide a simple and intuitive interface for bus stand 
+operators and customers. 
+ Manage Bus Departures: Add, edit, and track buses, including their departure 
+locations, enhancing operational efficiency. 
+3. System Features 
+The Bus Stand Management System consists of several key features: 
+1. Add New Bus: 
+o Operators can add new buses to the system, entering key details such as bus 
+number, destination, departure location, total seats, departure time, and arrival 
+time. 
+2. Show Available Buses: 
+o Displays a list of all available buses with details such as bus number, 
+destination, departure location, and departure time. 
+3. Show Available Seats: 
+o Allows users to check the availability of seats for a specific bus, ensuring that 
+they know how many seats remain unbooked. 
+4. Seat Allotment: 
+o Facilitates seat booking by passengers, ensuring no overbookings occur. The 
+system checks if the requested seats are available before confirming the 
+booking. 
+5. Show Bus Status: 
+o Displays detailed information about a specific bus, including bus number, 
+destination, total seats, booked seats, available seats, departure location, and 
+timings. 
+6. User-friendly Interface: 
+o The system provides clear menu options and prompts, making it easy for users 
+to navigate and perform tasks. 
+7. Tracking Departure Location: 
+o A key enhancement in this version of the system, where operators can input 
+and view the departure location of each bus, improving operational 
+transparency. 
+4. System Design 
+The Bus Stand Management System is designed in a modular way, with the following 
+components: 
+ Bus Data Storage: Information related to each bus, such as bus numbers, 
+destinations, seats, timings, and departure locations, is stored in arrays. 
+ Functionality for Adding Buses: The system allows operators to input new bus 
+details, including the bus number, destination, departure location, seats, and timings. 
+ Seat Management: The system tracks the number of seats booked for each bus and 
+ensures that seat availability is updated accurately. 
+ Bus Status Viewing: Users can view detailed information about a bus, including its 
+departure location and seat availability. 
+ Menu-Driven Interface: A simple menu-based interface allows the operator to easily 
+navigate through different options like adding a bus, viewing available buses, or 
+allotting seats. 
+5. Implementation Details 
+The Bus Stand Management System is implemented using C++, leveraging the following 
+concepts: 
+ Arrays: Used to store bus information such as bus numbers, destinations, seat counts, 
+and times. 
+ Loops: For iterating over arrays to display bus details, available buses, and booked 
+seats. 
+ Conditionals: To check availability, validate inputs, and handle edge cases like 
+overbooking. 
+ Input/Output Operations: The system interacts with the user via the console using 
+cin for input and cout for output. 
+ Functions: The system uses functions to execute the code. 
+6. Expected Benefits 
+The Bus Stand Management System is expected to provide the following benefits: 
+ Efficient Bus Management: Operators can easily manage and track bus details 
+without needing to manually maintain records. 
+ Time-Saving: Automates routine tasks like seat allotment and availability checks, 
+saving time for both operators and passengers. 
+ Reduced Errors: Automation reduces the chance of human error in managing bus 
+schedules and seat availability. 
+ Enhanced User Experience: Passengers and operators will find it easy to check bus 
+statuses and book seats, leading to higher customer satisfaction. 
+ Operational Transparency: The system provides clarity on departure locations, 
+ensuring better coordination and reducing confusion. 
+7. Conclusion 
+The Bus Stand Management System offers an efficient and easy-to-use solution for 
+managing bus operations, seat booking, and bus scheduling. By automating the process, it 
+helps bus operators streamline their operations, enhance customer experience, and ensure 
+smooth management of available seats. With its modular design, it can be easily extended 
+with additional features in the future. 
+We recommend the adoption of this system for any bus stand or transportation authority 
+looking to modernize and automate their operations.
