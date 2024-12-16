@@ -4,11 +4,14 @@ using namespace std;
 // Maximum number of buses
 const int MAX_BUSES = 10;
 
+// Maximum number of seats per bus
+const int MAX_SEATS = 40;
+
 // Arrays to store bus information
 string busNumbers[MAX_BUSES];
 string destinations[MAX_BUSES];
 string departureLocations[MAX_BUSES];  // New array for departure location
-int totalSeats[MAX_BUSES];
+int totalSeats[MAX_BUSES] = {MAX_SEATS};  // All buses can only have 40 seats
 int bookedSeats[MAX_BUSES];
 string departureTimes[MAX_BUSES];
 string arrivalTimes[MAX_BUSES];
@@ -31,9 +34,6 @@ void addBus() {
     cout << "Enter departure location: ";  // Prompt for departure location
     getline(cin, departureLocations[busCount]);  // Store departure location
 
-    cout << "Enter total seats: ";
-    cin >> totalSeats[busCount];
-
     bookedSeats[busCount] = 0; // Initially, no seats are booked
 
     // Input departure time
@@ -44,7 +44,7 @@ void addBus() {
     cout << "Enter arrival time (HH:MM): ";
     cin >> arrivalTimes[busCount];
 
-    busCount+=1;
+    busCount += 1;
     cout << "Bus added successfully!" << endl;
 }
 
@@ -72,7 +72,33 @@ void showAvailableSeats() {
     for (int i = 0; i < busCount; i++) {
         if (busNumbers[i] == busNumber) {
             cout << "Bus Number: " << busNumbers[i] << endl;
+            cout << "Total Seats: " << totalSeats[i] << endl;
+            cout << "Booked Seats: " << bookedSeats[i] << endl;
             cout << "Available Seats: " << totalSeats[i] - bookedSeats[i] << endl;
+
+            // Show the seat arrangement in a 4x10 grid format (4 rows and 10 columns with an aisle)
+            cout << "Seat Status (2x2 with aisle arrangement):\n";
+            int seatCount = 0;
+            for (int row = 0; row < 10; ++row) {  // 10 rows
+                for (int col = 0; col < 2; ++col) {  // Left side seats (2)
+                    if (seatCount < bookedSeats[i]) {
+                        cout << "[X] ";  // Booked seat
+                    } else {
+                        cout << "[ ] ";  // Available seat
+                    }
+                    seatCount++;
+                }
+                cout << "  |  ";  // Aisle
+                for (int col = 0; col < 2; ++col) {  // Right side seats (2)
+                    if (seatCount < bookedSeats[i]) {
+                        cout << "[X] ";  // Booked seat
+                    } else {
+                        cout << "[ ] ";  // Available seat
+                    }
+                    seatCount++;
+                }
+                cout << endl;
+            }
             return;
         }
     }
@@ -127,6 +153,30 @@ void showBusStatus() {
             cout << "Available Seats: " << totalSeats[i] - bookedSeats[i] << endl;
             cout << "Departure Time: " << departureTimes[i] << endl;
             cout << "Arrival Time: " << arrivalTimes[i] << endl;
+
+            // Show the seat arrangement in a 4x10 grid format (2x2 with aisle)
+            cout << "Seats Status\n";
+            int seatCount = 0;
+            for (int row = 0; row < 10; ++row) {  // 10 rows
+                for (int col = 0; col < 2; ++col) {  // Left side seats (2)
+                    if (seatCount < bookedSeats[i]) {
+                        cout << "[X] ";  // Booked seat
+                    } else {
+                        cout << "[ ] ";  // Available seat
+                    }
+                    seatCount++;
+                }
+                cout << "  |  ";  // Aisle
+                for (int col = 0; col < 2; ++col) {  // Right side seats (2)
+                    if (seatCount < bookedSeats[i]) {
+                        cout << "[X] ";  // Booked seat
+                    } else {
+                        cout << "[ ] ";  // Available seat
+                    }
+                    seatCount++;
+                }
+                cout << endl;
+            }
             return;
         }
     }
@@ -172,6 +222,13 @@ int main() {
                 cout << "Invalid choice. Please try again." << endl;
         }
     }
-//END PROGRAME
     return 0;
 }
+
+
+
+ 
+
+
+           
+        
