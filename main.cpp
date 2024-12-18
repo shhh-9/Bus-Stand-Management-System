@@ -5,7 +5,7 @@ using namespace std;
 const int MAX_BUSES = 10;
 
 // Maximum number of seats per bus
-const int MAX_SEATS = 40;
+const int MAX_SEATS = 40; 
 
 // Arrays to store bus information
 string busNumbers[MAX_BUSES];
