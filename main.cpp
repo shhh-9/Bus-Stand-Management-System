@@ -1,25 +1,25 @@
 #include <iostream>
 using namespace std;
 
-// Maximum number of buses
-const int MAX_BUSES = 10;
+//maximum number of buses
+const int maxBuses = 10;
 
-// Maximum number of seats per bus
-const int MAX_SEATS = 40; 
+//maximum number of seats per bus
+const int maxSeats = 40; 
 
-// Arrays to store bus information
-string busNumbers[MAX_BUSES];
-string destinations[MAX_BUSES];
-string departureLocations[MAX_BUSES];  // New array for departure location
-int totalSeats[MAX_BUSES] = {MAX_SEATS};  // All buses can only have 40 seats
-int bookedSeats[MAX_BUSES];
-string departureTimes[MAX_BUSES];
-string arrivalTimes[MAX_BUSES];
-int busCount = 0; // Number of buses added
+//arrays to store bus information
+string busNumbers[maxBuses];
+string destinations[maxBuses];
+string departureLocations[maxBuses];  //new array for departure location
+int totalSeats[maxBuses] = {maxSeats};  //all buses can only have 40 seats
+int bookedSeats[maxBuses];
+string departureTimes[maxBuses];
+string arrivalTimes[maxBuses];
+int busCount = 0; //number of buses added
 
-// Function to add a new bus 
+//function to add a new bus 
 void addBus() {
-    if (busCount >= MAX_BUSES) {
+    if (busCount >= maxBuses) {
         cout << "Cannot add more buses. Maximum capacity reached!" << endl;
         return;
     }
@@ -31,16 +31,16 @@ void addBus() {
     cout << "Enter destination: ";
     getline(cin, destinations[busCount]);
 
-    cout << "Enter departure location: ";  // Prompt for departure location
-    getline(cin, departureLocations[busCount]);  // Store departure location
+    cout << "Enter departure location: ";  //prompt for departure location
+    getline(cin, departureLocations[busCount]);  //store departure location
 
-    bookedSeats[busCount] = 0; // Initially, no seats are booked
+    bookedSeats[busCount] = 0; //initially, no seats are booked
 
-    // Input departure time
+    //input departure time
     cout << "Enter departure time (HH:MM): ";
     cin >> departureTimes[busCount];
 
-    // Input arrival time
+    //input arrival time
     cout << "Enter arrival time (HH:MM): ";
     cin >> arrivalTimes[busCount];
 
@@ -48,7 +48,7 @@ void addBus() {
     cout << "Bus added successfully!" << endl;
 }
 
-void showAvailableBuses() {   // Function to show the status of available buses
+void showAvailableBuses() {   //function to show the status of available buses
     if (busCount == 0) {
         cout << "No buses available!" << endl;
         return;
@@ -58,12 +58,12 @@ void showAvailableBuses() {   // Function to show the status of available buses
     for (int i = 0; i < busCount; i++) {
         cout << "Bus Number: " << busNumbers[i]
              << ", Destination: " << destinations[i]
-             << ", Departure Location: " << departureLocations[i]  // Show departure location
+             << ", Departure Location: " << departureLocations[i]  //show departure location
              << ", Departure time: " << departureTimes[i] << endl;
     }
 }
 
-// Function to show available seats in a specific bus
+//function to show available seats in a specific bus
 void showAvailableSeats() {
     cout << "Enter bus number: ";
     string busNumber;
@@ -76,24 +76,24 @@ void showAvailableSeats() {
             cout << "Booked Seats: " << bookedSeats[i] << endl;
             cout << "Available Seats: " << totalSeats[i] - bookedSeats[i] << endl;
 
-            // Show the seat arrangement in a 4x10 grid format (4 rows and 10 columns with an aisle)
+            //show the seat arrangement in a 4x10 grid format (4 rows and 10 columns with an aisle)
             cout << "Seat Status (2x2 with aisle arrangement):\n";
             int seatCount = 0;
-            for (int row = 0; row < 10; ++row) {  // 10 rows
-                for (int col = 0; col < 2; ++col) {  // Left side seats (2)
+            for (int row = 0; row < 10; row++) {  //10 rows
+                for (int col = 0; col < 2; col++) {  //left side seats (2)
                     if (seatCount < bookedSeats[i]) {
-                        cout << "[X] ";  // Booked seat
+                        cout << "[X] ";  //booked seat
                     } else {
-                        cout << "[ ] ";  // Available seat
+                        cout << "[ ] ";  //available seat
                     }
                     seatCount++;
                 }
-                cout << "  |  ";  // Aisle
-                for (int col = 0; col < 2; ++col) {  // Right side seats (2)
+                cout << "  |  ";  
+                for (int col = 0; col < 2; col++) {  //right side seats (2)
                     if (seatCount < bookedSeats[i]) {
-                        cout << "[X] ";  // Booked seat
+                        cout << "[X] ";  //booked seat
                     } else {
-                        cout << "[ ] ";  // Available seat
+                        cout << "[ ] ";  //available seat
                     }
                     seatCount++;
                 }
@@ -106,7 +106,7 @@ void showAvailableSeats() {
     cout << "Bus not found!" << endl;
 }
 
-// Function to allot seats to passengers
+//function to allot seats to passengers
 void allotSeat() {
     cout << "Enter bus number: ";
     string busNumber;
@@ -137,7 +137,7 @@ void allotSeat() {
     cout << "Bus not found!" << endl;
 }
 
-// Function to display the status of a specific bus
+//function to display the status of a specific bus
 void showBusStatus() {
     cout << "Enter bus number: ";
     string busNumber;
@@ -154,24 +154,24 @@ void showBusStatus() {
             cout << "Departure Time: " << departureTimes[i] << endl;
             cout << "Arrival Time: " << arrivalTimes[i] << endl;
 
-            // Show the seat arrangement in a 4x10 grid format (2x2 with aisle)
+            //show the seat arrangement in a 4x10 grid format (2x2 with aisle)
             cout << "Seats Status\n";
             int seatCount = 0;
-            for (int row = 0; row < 10; ++row) {  // 10 rows
-                for (int col = 0; col < 2; ++col) {  // Left side seats (2)
+            for (int row = 0; row < 10; ++row) {  //10 rows
+                for (int col = 0; col < 2; ++col) {  //left side seats (2)
                     if (seatCount < bookedSeats[i]) {
-                        cout << "[X] ";  // Booked seat
+                        cout << "[X] ";  //booked seat
                     } else {
-                        cout << "[ ] ";  // Available seat
+                        cout << "[ ] ";  //available seat
                     }
                     seatCount++;
                 }
-                cout << "  |  ";  // Aisle
-                for (int col = 0; col < 2; ++col) {  // Right side seats (2)
+                cout << "  |  ";  //aisle
+                for (int col = 0; col < 2; ++col) {  //right side seats (2)
                     if (seatCount < bookedSeats[i]) {
-                        cout << "[X] ";  // Booked seat
+                        cout << "[X] ";  //booked seat
                     } else {
-                        cout << "[ ] ";  // Available seat
+                        cout << "[ ] ";  //available seat
                     }
                     seatCount++;
                 }
@@ -224,11 +224,3 @@ int main() {
     }
     return 0;
 }
-
-
-
- 
-
-
-           
-        
