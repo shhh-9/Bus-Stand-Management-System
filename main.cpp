@@ -10,7 +10,7 @@ const int maxSeats = 40;
 //arrays to store bus information
 string busNumbers[maxBuses];
 string destinations[maxBuses];
-string departureLocations[maxBuses];  //new array for departure location
+string departureLocations[maxBuses];  //array for departure location
 int totalSeats[maxBuses] = {maxSeats};  //all buses can only have 40 seats
 int bookedSeats[maxBuses];
 string departureTimes[maxBuses];
