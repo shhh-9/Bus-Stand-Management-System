@@ -77,7 +77,7 @@ void showAvailableSeats() {
             cout << "Available Seats: " << totalSeats[i] - bookedSeats[i] << endl;
 
             //show the seat arrangement in a 4x10 grid format (4 rows and 10 columns with an aisle)
-            cout << "Seat Status (2x2 with aisle arrangement):\n";
+            cout << "Seat Status:\n";
             int seatCount = 0;
             for (int row = 0; row < 10; row++) {  //10 rows
                 for (int col = 0; col < 2; col++) {  //left side seats (2)
